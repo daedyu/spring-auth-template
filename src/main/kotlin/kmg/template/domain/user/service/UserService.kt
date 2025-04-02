@@ -28,7 +28,7 @@ class UserService(
 
     fun signIn(request: UserRequest): TokenResponse {
         val user: UserEntity = userRepository.findByEmail(request.email)?: throw RuntimeException("User not found")
-        if (!bcryptPasswordEncoder.matches(request.password, request.password)) throw RuntimeException("Invalid password")
+        if (!bcryptPasswordEncoder.matches(request.password, user.password)) throw RuntimeException("Invalid password")
         return TokenResponse(
             access = tokenProvider.generateAccess(user),
             refresh = tokenProvider.generateRefresh(user)
