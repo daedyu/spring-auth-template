@@ -6,7 +6,7 @@ spring:
     name: spring # application name
   # change this data
   datasource:
-    url: jdbc:mysql://localhost:3306/template # rdb url
+    url: jdbc:mysql://localhost:3306/template
     username: root
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver # driver
@@ -14,6 +14,7 @@ spring:
     hibernate:
       ddl-auto: validate
     show-sql: false
+    open-in-view: false
 
 app:
   jwt:
