@@ -6,10 +6,10 @@ data class UserRequest(
     val email: String,
     val password: String,
 ) {
-    fun toEntity(): UserEntity {
+    fun toEntity(encodedPassword: String): UserEntity {
         return UserEntity(
             email = email,
-            password = password
+            password = encodedPassword,
         )
     }
 }

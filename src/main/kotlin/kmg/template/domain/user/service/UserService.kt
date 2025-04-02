@@ -23,7 +23,7 @@ class UserService(
     private val tokenParser: TokenParser
 ) {
     fun signUp(request: UserRequest) {
-        userRepository.save(request.toEntity())
+        userRepository.save(request.toEntity(bcryptPasswordEncoder.encode(request.password)))
     }
 
     fun signIn(request: UserRequest): TokenResponse {
