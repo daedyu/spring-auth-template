@@ -29,7 +29,7 @@ class TokenFilter(
         response: HttpServletResponse,
         filterChain: FilterChain
     ) {
-        if (request.getHeader(HttpHeaders.AUTHORIZATION).isNotEmpty()) {
+        if (!request.getHeader("Authorization").isNullOrEmpty()) {
             val token: String = request.getHeader("Authorization")?: throw RuntimeException("throw this error when header missing")
             if (!token.startsWith(TOKEN_SECURE_TYPE)) throw RuntimeException("throw this error when token not found")
             tokenValidator.validateAll(token.removePrefix(TOKEN_SECURE_TYPE), TokenType.ACCESS_TOKEN)

@@ -27,6 +27,7 @@ class SecurityConfig(
                 request
                     // add endpoints here
                     .requestMatchers("/auth/*").permitAll()
+                    .requestMatchers("/user/*").permitAll()
                     .anyRequest().authenticated()
             }
             .addFilterAfter(tokenFilter, UsernamePasswordAuthenticationFilter::class.java)
