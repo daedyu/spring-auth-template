@@ -1,0 +1,22 @@
+server:
+  port: 8080 # spring server port
+
+spring:
+  application:
+    name: spring # application name
+  # change this data
+  datasource:
+    url: jdbc:mysql://localhost:3306/template # rdb url
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver # driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+
+app:
+  jwt:
+    secret: thisisfakekey1234thisfak1234keythisis90798 # your key
+    access: 3600000 # 1hour
+    refresh: 604800000 # 7 day
